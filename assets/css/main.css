@@ -2315,6 +2315,54 @@ input, select, textarea {
 	}
 
 /* Icon */
+	.icon {
+		text-decoration: none;
+		border-bottom: none;
+		position: relative;
+		display: inline-block;
+		transition: all 0.3s ease;
+	}
+
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		text-transform: none !important;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+		font-size: 1.5em;
+		margin-right: 0.5em;
+	}
+
+	.icon:hover {
+		color: #49fcd4;
+		transform: scale(1.1);
+	}
+
+	.icon > .label {
+		display: none;
+	}
+
+	.icon.solid:before {
+		font-weight: 900;
+	}
+
+	.icon.brands:before {
+		font-family: 'Font Awesome 5 Brands';
+	}
+
+	/* Custom icons */
+	.icon.fa-image:before { content: '\f03e'; }
+	.icon.fa-paint-brush:before { content: '\f1fc'; }
+	.icon.fa-pencil-alt:before { content: '\f303'; }
+	.icon.fa-folder-open:before { content: '\f07c'; }
+	.icon.fa-play-circle:before { content: '\f144'; }
+	.icon.fa-palette:before { content: '\f53f'; }
+
 
 	.icon {
 		text-decoration: none;
