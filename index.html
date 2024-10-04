@@ -15,6 +15,8 @@
 	</head>
 	<body class="is-preload">
 
+
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -81,6 +83,108 @@
 						</header>
 						<div class="content">
 							<p><strong>Recently , </strong>  I have been involved in various design projects, including creating visually engaging posters for a sports event that effectively captured the attention of the audience. I also designed dynamic YouTube thumbnails aimed at enhancing video presentation and attracting more viewers. Additionally, I developed banners for hoardings, ensuring high visibility and impactful branding to convey the intended message effectively.</p>
+							<!-- Image Slider -->
+							<div class="image-slider">
+								<div class="slider-container">
+									<div class="slider">
+										<img src="images/gallery/fulls/1.jpg" alt="Design Work 1">
+										<img src="images/gallery/fulls/2.jpg" alt="Design Work 2">
+										<img src="images/gallery/fulls/3.jpg" alt="Design Work 3">
+										<img src="images/gallery/fulls/4.jpg" alt="Design Work 4">
+										<img src="images/gallery/fulls/0.jpg" alt="Design Work 5">
+										<img src="images/gallery/fulls/6.jpg" alt="Design Work 6">
+										<img src="images/gallery/fulls/7.jpg" alt="Design Work 7">
+										<img src="images/gallery/fulls/8.jpg" alt="Design Work 8">
+										<img src="images/gallery/fulls/9.jpg" alt="Design Work 9">
+										<img src="images/gallery/fulls/10.jpg" alt="Design Work 10">
+									</div>
+									<button class="prev"><i class="fas fa-chevron-left"></i></button>
+									<button class="next"><i class="fas fa-chevron-right"></i></button>
+								</div>
+							</div>
+
+							<style>
+								.image-slider {
+									width: 100%;
+									margin: 2em 0;
+								}
+								.slider-container {
+									position: relative;
+									overflow: hidden;
+								}
+								.slider {
+									display: flex;
+									transition: transform 0.5s ease-in-out;
+								}
+								.slider img {
+									width: 100%;
+									height: auto;
+									object-fit: cover;
+									transition: transform 0.3s ease-in-out;
+								}
+								.slider img:hover {
+									transform: scale(1.05);
+								}
+								.prev, .next {
+									position: absolute;
+									top: 50%;
+									transform: translateY(-50%);
+									background: rgba(0, 0, 0, 0.5);
+									color: white;
+									padding: 1em;
+									border: none;
+									cursor: pointer;
+									z-index: 1;
+									transition: background-color 0.3s ease, transform 0.3s ease;
+								}
+								.prev { left: 0; }
+								.next { right: 0; }
+								.prev:hover, .next:hover {
+									background-color: rgba(0, 0, 0, 0.8);
+									transform: translateY(-50%) scale(1.1);
+								}
+								.prev i, .next i {
+									font-size: 1.5em;
+								}
+							</style>
+
+							<script>
+								document.addEventListener('DOMContentLoaded', function() {
+									const slider = document.querySelector('.slider');
+									const prevButton = document.querySelector('.prev');
+									const nextButton = document.querySelector('.next');
+									let slideIndex = 0;
+
+									function showSlide(index) {
+										slider.style.transform = `translateX(-${index * 100}%)`;
+									}
+
+									function animateSlide(direction) {
+										slider.style.transition = 'transform 0.5s ease-in-out';
+										showSlide(slideIndex);
+										setTimeout(() => {
+											slider.style.transition = 'none';
+											if (direction === 'prev' && slideIndex === 0) {
+												slideIndex = 9;
+												showSlide(slideIndex);
+											} else if (direction === 'next' && slideIndex === 9) {
+												slideIndex = 0;
+												showSlide(slideIndex);
+											}
+										}, 500);
+									}
+
+									prevButton.addEventListener('click', () => {
+										slideIndex = (slideIndex - 1 + 10) % 10;
+										animateSlide('prev');
+									});
+
+									nextButton.addEventListener('click', () => {
+										slideIndex = (slideIndex + 1) % 10;
+										animateSlide('next');
+									});
+								});
+							</script>
 
 							<!-- Section -->
 								<section>
